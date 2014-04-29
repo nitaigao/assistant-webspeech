@@ -21,8 +21,9 @@ $(document).ready(function() {
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       transcript += event.results[i][0].transcript;
       if (event.results[i].isFinal) {
-        console.log(transcript.trim());
-        $.post('http://localhost:8080', {"text":transcript.trim()})
+        var message = JSON.stringify({text: transcript.trim()})
+        console.log(message);
+        $.post('http://localhost:8080', message)
         transcript = ''
       }
     }
