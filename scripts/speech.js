@@ -13,6 +13,7 @@ $(document).ready(function() {
 
   recognition.onend = function() {
     console.log('speech ended');
+    // recognition.start();
   };
 
   recognition.onresult = function(event) {
@@ -20,6 +21,7 @@ $(document).ready(function() {
     var final_received = false;
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       transcript += event.results[i][0].transcript;
+      $('#transcript').text(transcript)
       if (event.results[i].isFinal) {
         var message = JSON.stringify({text: transcript.trim()})
         console.log(message);
