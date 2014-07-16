@@ -1,0 +1,11 @@
+{
+  "default": {
+    "detection": "http://localhost:8080"
+  },
+  "development": {
+    "detection": "http://localhost:8080"
+  },
+  "production": {
+    "detection" : "http://assistant-detection.herokuapp.com"
+  }
+}

@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   recognition.onend = function() {
     console.log('speech ended');
-    // recognition.start();
+    recognition.start();
   };
 
   recognition.onresult = function(event) {
@@ -23,9 +23,7 @@ $(document).ready(function() {
       transcript += event.results[i][0].transcript;
       $('#transcript').text(transcript)
       if (event.results[i].isFinal) {
-        var message = JSON.stringify({text: transcript.trim()})
-        console.log(message);
-        $.post('http://localhost:8080', message)
+        $.post("/command", {text: transcript.trim()})
         transcript = ''
       }
     }
